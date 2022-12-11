@@ -1,6 +1,3 @@
-import GroupIcon from "@mui/icons-material/Group";
-import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
-import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,9 +7,15 @@ import {
   faVideoSlash,
   faMicrophoneSlash,
   faPhoneSlash,
+  faRecordVinyl,
+  faUserGroup,
+  faMessage,
+  faNoteSticky
 } from "@fortawesome/free-solid-svg-icons";
 import ReactTooltip from "react-tooltip";
 import "./MeetingFooter.css";
+
+
 const MeetingFooter = (props) => {
   const [streamState, setStreamState] = useState({
     mic: true,
@@ -36,6 +39,8 @@ const MeetingFooter = (props) => {
 		} catch (e) {}
 		window.location.href = "/"
   };
+
+
 
 
 
@@ -107,18 +112,37 @@ const MeetingFooter = (props) => {
         <FontAwesomeIcon icon={faPhoneSlash} />
       </div>
 
+      <div 
+        className="meeting-icons" 
+        data-tip="Record"
+      >
+        <FontAwesomeIcon icon={faRecordVinyl} />
+      </div>
+
+      <div 
+        className="meeting-icons"
+        data-tip="Participants"
+      >
+        <FontAwesomeIcon icon={faUserGroup} />
+      </div>
+
+      <div
+        className="meeting-icons"
+        data-tip="Chat"
+      >
+      <FontAwesomeIcon icon={faMessage} />
+      </div>
+
+      <div
+        className="meeting-icons"
+        data-tip="Note"
+      >
+      <FontAwesomeIcon icon={faNoteSticky} />
+      </div>
+
       <ReactTooltip />
 
-      <div data-tip="Participants">
-        <button>
-          <GroupIcon />
-        </button>
-      </div>
-      <div data-tip="Record" id="record">
-        <button>
-          <RadioButtonCheckedIcon />
-        </button>
-      </div>
+      
     </div>
   );
 };
